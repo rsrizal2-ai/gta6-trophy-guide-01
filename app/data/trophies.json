@@ -41,7 +41,7 @@
    "hidden": false,
    "story": false,
    "missable": false,
-   "guide": "Earn the other 54 trophies and this one pops automatically — there is no separate task. The road runs through the whole story, 100% completion and every side grind in this guide, and the early guides put the full platinum at roughly 200 to 300 hours. No online play is needed: all 55 trophies are single-player.",
+   "guide": "Earn the other 54 trophies and this one pops on its own — there is no separate task behind it. The road runs through the whole story, 100% completion and every side grind in this guide, and the early guides put the full platinum at roughly 200 to 300 hours. No online play is needed: all 55 trophies are single-player.",
    "sources": ["psn-exophase", "pushsquare", "keengamer"]
   },
   {
@@ -53,7 +53,7 @@
    "hidden": true,
    "story": true,
    "missable": false,
-   "guide": "Finish the opening mission, Gone Fishing. It is the first story mission, so this unlocks naturally in the opening hour of the game — just play through the intro and the trophy pops when the mission ends.",
+   "guide": "Finish the opening mission, Gone Fishing. It is the first story mission, so this unlocks naturally in the opening hour — just play through the intro and the trophy pops when the mission ends.",
    "sources": ["psn-exophase", "pushsquare"]
   },
   {
@@ -187,7 +187,8 @@
    "missable": false,
    "guide": "Complete the story mission Operation Savage Glory. A campaign trophy: finish the mission and it pops. No side content is needed for it.",
    "sources": ["psn-exophase", "pushsquare"]
-  },
+  }
+,
   {
    "id": 14,
    "name": "A Long Road",
@@ -247,8 +248,7 @@
    "missable": false,
    "guide": "Win a Top Fun drone race at every Top Fun location on the map. Learn each course's corners and gates, and retry a location until you win — a loss costs nothing but the attempt. Work through the locations one by one and tick them off in this tracker as you win them.",
    "sources": ["psn-exophase", "pushsquare"]
-  }
-,
+  },
   {
    "id": 19,
    "name": "Earn Cash, Not Kudos",
@@ -356,7 +356,8 @@
    "missable": false,
    "guide": "Complete the final mission for Tyrone. Follow Tyrone's strand to its final mission and finish it — the trophy unlocks at the end.",
    "sources": ["psn-exophase", "pushsquare"]
-  },
+  }
+,
   {
    "id": 28,
    "name": "Positive Mental Attitude",
@@ -464,8 +465,7 @@
    "missable": false,
    "guide": "Take down 5 enemies in a single use of Combat Focus. Combat Focus is the slow-motion targeting mode — activate it with a group of enemies in front of you and drop five before it ends. A crowded shootout with plenty of cover is the place to try it; if you fall short, the attempt costs nothing and you can try again at the next fight.",
    "sources": ["psn-exophase", "pushsquare"]
-  }
-,
+  },
   {
    "id": 37,
    "name": "Catch Me If You Can",
@@ -525,7 +525,8 @@
    "missable": false,
    "guide": "Rob an armored truck and escape. Ambush an armored truck on the road, stop it, crack it open and get away before the police close in. A quiet stretch of road and a fast car make the escape far easier than trying it in the middle of Vice City.",
    "sources": ["psn-exophase", "pushsquare"]
-  },
+  }
+,
   {
    "id": 42,
    "name": "The Goodtime State",
