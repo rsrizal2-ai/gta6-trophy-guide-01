@@ -1,0 +1,104 @@
+/* Leonida Trophy Guide — original styling: a dark neon Vice City night look.
+   No Rockstar logo or official artwork is used anywhere in this guide. */
+:root {
+  --bg: #0d0b1e;
+  --panel: #17142e;
+  --panel-2: #1f1a3d;
+  --ink: #f2eefc;
+  --muted: #b9b2d8;
+  --line: #332c5e;
+  --pink: #ff5da2;
+  --teal: #2ee6c8;
+  --gold: #ffc44d;
+  --silver: #c9d2e0;
+  --bronze: #e0955a;
+  --danger: #ff6b6b;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  margin: 0; color: var(--ink); background: var(--bg);
+  background-image: linear-gradient(160deg, #1a1040 0%, var(--bg) 45%, #101d33 100%);
+  min-height: 100vh;
+}
+.hero {
+  display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between;
+  padding: 32px 28px 20px; max-width: 1180px; margin: 0 auto;
+}
+.kicker { color: var(--teal); text-transform: uppercase; letter-spacing: .14em; font-size: 12px; margin: 0 0 8px; }
+h1 { font-size: 44px; line-height: 1.05; margin: 0 0 10px; }
+h1::after { content: ""; display: block; width: 120px; height: 5px; margin-top: 12px;
+  background: linear-gradient(90deg, var(--pink), var(--gold), var(--teal)); border-radius: 3px; }
+.sub { color: var(--muted); max-width: 640px; line-height: 1.55; margin: 0; }
+.progress-card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+  padding: 18px 20px; min-width: 260px; align-self: flex-start;
+}
+.big { font-size: 40px; font-weight: 700; }
+.big .of { color: var(--muted); font-size: 22px; }
+.bar { height: 10px; background: #0a0817; border-radius: 5px; overflow: hidden; margin: 10px 0; }
+#bar-fill { height: 100%; background: linear-gradient(90deg, var(--pink), var(--gold)); }
+#progress-line, .grades { margin: 4px 0; color: var(--muted); font-size: 14px; }
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 28px; max-width: 1180px; margin: 8px auto 0; }
+.tab {
+  background: var(--panel); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 999px; padding: 9px 16px; font-size: 15px; cursor: pointer;
+}
+.tab.active { background: var(--pink); border-color: var(--pink); color: #fff; font-weight: 700; }
+section { max-width: 1180px; margin: 0 auto; padding: 18px 28px; }
+.controls { display: flex; gap: 14px; flex-wrap: wrap; align-items: end; margin: 6px 0 12px; }
+.controls label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+.controls label.check { flex-direction: row; align-items: center; gap: 6px; color: var(--ink); font-size: 14px; padding-bottom: 8px; }
+.controls input[type="search"], .controls select {
+  background: var(--panel); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 10px; font-size: 14px;
+}
+.controls input[type="search"] { min-width: 220px; }
+.actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 4px 0 14px; }
+.actions button, .import-btn {
+  background: var(--panel-2); color: var(--ink); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 14px; font-size: 14px; cursor: pointer;
+}
+.actions button:hover, .import-btn:hover { border-color: var(--pink); }
+.import-btn input { display: none; }
+.count { color: var(--muted); font-size: 14px; margin-left: auto; }
+.note { color: var(--muted); font-size: 14px; line-height: 1.5; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px; }
+.card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 14px 16px; display: flex; flex-direction: column; gap: 8px;
+}
+.card.earned { border-color: var(--teal); }
+.card.missable { border-color: var(--danger); }
+.card-head { display: flex; gap: 10px; align-items: flex-start; }
+.card-head input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--teal); flex: none; }
+.card h3 { margin: 0; font-size: 17px; line-height: 1.3; }
+.card.earned h3 { color: var(--teal); }
+.badge {
+  display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em; border-radius: 999px; padding: 3px 9px; margin-left: 6px; vertical-align: middle;
+}
+.badge.platinum { background: #e8f6ff; color: #0a5a8a; }
+.badge.gold { background: var(--gold); color: #4a2f00; }
+.badge.silver { background: var(--silver); color: #26313f; }
+.badge.bronze { background: var(--bronze); color: #3d1e00; }
+.flag { display: inline-block; font-size: 11px; font-weight: 700; border-radius: 999px; padding: 3px 9px; margin-left: 6px; vertical-align: middle; }
+.flag.missable { background: var(--danger); color: #fff; }
+.flag.hidden { background: #3a2f6e; color: #d8cfff; }
+.official { color: var(--muted); font-style: italic; margin: 0; font-size: 14px; }
+.guide { margin: 0; line-height: 1.55; font-size: 14.5px; }
+.guide b { color: var(--teal); }
+.src { color: var(--muted); font-size: 12px; margin: 0; }
+.src a { color: var(--teal); }
+.kind { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; margin: 0; }
+.roadmap { line-height: 1.6; padding-left: 22px; }
+.roadmap li { margin-bottom: 12px; }
+.roadmap li::marker { color: var(--pink); font-weight: 700; }
+h2 { font-size: 26px; margin: 6px 0 10px; }
+h3 { font-size: 18px; margin: 20px 0 6px; }
+footer { max-width: 1180px; margin: 0 auto; padding: 8px 28px 32px; color: var(--muted); font-size: 13px; }
+footer code, .note code { color: var(--teal); }
+@media (max-width: 640px) {
+  h1 { font-size: 32px; }
+  .hero, section, .tabs { padding-left: 16px; padding-right: 16px; }
+}

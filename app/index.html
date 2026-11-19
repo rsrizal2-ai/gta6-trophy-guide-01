@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI: all 55 PS5 trophies, offline tracker</title>
+<meta name="description" content="Offline guide and tracker for the 55 official PlayStation 5 trophies of Grand Theft Auto VI: checklist, roadmap to the platinum, missable warnings, and a guide to every trophy in our own words. Works with the network off.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div>
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; offline guide</p>
+    <h1>Leonida Trophy Guide</h1>
+    <p class="sub">Every one of the 55 official PS5 trophies — name, description and grade exactly as PlayStation publishes them — with a guide to each in our own words, a checklist that saves in your browser, a road to the platinum, and the missables flagged.</p>
+  </div>
+  <div class="progress-card" aria-label="Progress">
+    <div class="big"><span id="earned-count">0</span><span class="of"> / 55</span></div>
+    <div class="bar"><div id="bar-fill" style="width:0%"></div></div>
+    <p id="progress-line">0 earned &middot; 0% to the platinum</p>
+    <p class="grades" id="grade-line"></p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Views">
+  <button type="button" id="tab-list" class="tab active">Trophy checklist</button>
+  <button type="button" id="tab-roadmap" class="tab">Roadmap to the platinum</button>
+  <button type="button" id="tab-missable" class="tab">Missable trophies</button>
+  <button type="button" id="tab-sources" class="tab">Sources &amp; notes</button>
+</nav>
+
+<section id="view-list">
+  <div class="controls">
+    <label class="search">Search <input id="q" type="search" placeholder="Trophy, mission or keyword…" autocomplete="off"></label>
+    <label>Kind
+      <select id="kind">
+        <option value="all">All kinds</option>
+        <option value="story">Story</option>
+        <option value="activity">Activities</option>
+        <option value="collectible">Collectibles</option>
+        <option value="robbery">Robberies</option>
+        <option value="combat">Combat</option>
+        <option value="exploration">Exploration</option>
+        <option value="money">Money</option>
+        <option value="misc">Odd jobs &amp; secrets</option>
+        <option value="completion">100% completion</option>
+        <option value="platinum">Platinum</option>
+      </select>
+    </label>
+    <label>Grade
+      <select id="grade">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label>Status
+      <select id="status">
+        <option value="all">Earned &amp; unearned</option>
+        <option value="earned">Earned only</option>
+        <option value="unearned">Unearned only</option>
+      </select>
+    </label>
+    <label class="check"><input id="missable-only" type="checkbox"> Missable only</label>
+    <label class="check" title="Hides story trophies until you earn them"><input id="spoilers" type="checkbox" checked> Hide story spoilers</label>
+  </div>
+  <div class="actions">
+    <button id="export" type="button">Export progress (.json)</button>
+    <label class="import-btn">Import progress <input id="import" type="file" accept="application/json,.json"></label>
+    <button id="reset" type="button">Reset checklist</button>
+    <span id="count-line" class="count"></span>
+  </div>
+  <p id="spoiler-note" class="note">Spoiler protection is on: 17 story trophies are hidden until you earn them. Untick “Hide story spoilers” to see them.</p>
+  <div id="cards" class="cards"></div>
+  <p id="empty" class="note" hidden>No trophies match these filters.</p>
+</section>
+
+<section id="view-roadmap" hidden>
+  <h2>Road to the platinum — <em>Vice Got a Price!</em></h2>
+  <p id="roadmap-estimate" class="note"></p>
+  <ol id="roadmap-steps" class="roadmap"></ol>
+  <h3>Warnings</h3>
+  <ul id="roadmap-warnings"></ul>
+</section>
+
+<section id="view-missable" hidden>
+  <h2>Missable trophies</h2>
+  <p>Only one trophy is currently reported as missable. The game has no mission replay, so the advice below matters — and until the community confirms the full list, keep a manual save at the start of every chapter.</p>
+  <div id="missable-list" class="cards"></div>
+</section>
+
+<section id="view-sources" hidden>
+  <h2>Sources &amp; notes</h2>
+  <p id="source-note"></p>
+  <ul id="source-list"></ul>
+  <p class="note">This guide is unofficial and not affiliated with Rockstar Games or PlayStation. Trophy names, descriptions and grades are the official PlayStation Network text; the guides are written in our own words. No Rockstar logo or official artwork is used. All files of this guide live under <code>app/</code> and it works with the network off — your checklist never leaves your browser except when you export it yourself.</p>
+</section>
+
+<footer>
+  <p>Leonida Trophy Guide — an unofficial, open-source, offline guide to the 55 official GTA VI PS5 trophies. Data: <code>app/data/trophies.json</code>.</p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
