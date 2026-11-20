@@ -1,60 +1,43 @@
-# Leonida Trophy Guide — GTA VI, all 55 PS5 trophies
+# Leonida Trophy Atlas — GTA VI Trophy Guide & Tracker
 
 [![make.fun · gta6-trophy-guide-01](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![rank](https://make.fun/badge/gta6-trophy-guide-01/rsrizal2-ai/gta6-trophy-guide-01/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 [![reward](https://make.fun/badge/gta6-trophy-guide-01/rsrizal2-ai/gta6-trophy-guide-01/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 
-An offline guide and tracker for the **55 official PlayStation 5 trophies** of
-Grand Theft Auto VI, built for the [make.fun bounty](https://make.fun/bounty/gta6-trophy-guide-01).
+An offline guide and tracker for all **55 Grand Theft Auto VI trophies** on PlayStation 5 (1 platinum, 2 gold, 6 silver, 46 bronze), built for the [make.fun bounty “Build the best GTA 6 trophy guide”](https://make.fun/bounty/gta6-trophy-guide-01).
 
-Open `app/index.html` in a desktop browser and it works with the network off:
-every file it loads lives under `app/`, and your checklist never leaves your
-browser except when you export it yourself.
+## What it is
 
-## What it covers
+- **Every trophy** with its official name, description and grade as PlayStation publishes them, plus a guide in our own words that names its sources (KeenGamer, PushSquare, GTABase, EGamers.io, Leonida Hub).
+- **A roadmap to the platinum** in four stages: play the story, reach 100% completion, finish the Strangers & Freaks strands, then the platinum.
+- **Missable flags** built from the official descriptions — one trophy is possibly missable (Positive Mental Attitude, the Chapter 1 balcony meditation with Lucia).
+- **A tracker**: check trophies off as you earn them; progress is saved in the browser (localStorage) and can be exported to a file and imported back.
+- **Filters** by kind (story, missable, collectibles, activities, crime, exploration) and by earned / not yet earned, plus search.
+- **A spoiler setting** that hides the names and descriptions of story trophies until they are earned.
 
-- **All 55 official trophies** — exact name, official description and grade
-  (1 Platinum, 2 Gold, 6 Silver, 46 Bronze), as published on PlayStation
-  Network and reported 18 November 2026 — in `app/data/trophies.json`.
-- **A guide to each trophy, written in our own words** — what to do, where and
-  how, and when it can be missed — each one citing its sources (Exophase via
-  Planet GTA 6, Push Square, KeenGamer, Output Lag). No guide text is copied
-  from other guides.
-- **Checklist saved in the browser** (localStorage), with **export and import**
-  as a JSON file.
-- **Filters** by kind, grade, earned/unearned, a search box, and a
-  missable-only toggle.
-- **Spoiler setting** (on by default): the 17 story trophies stay hidden until
-  you earn them.
-- **Roadmap to the platinum** (`Vice Got a Price!`) in seven steps, built from
-  the official descriptions — plus the **missable trophies flagged**. Only one
-  trophy is currently reported as missable: **Positive Mental Attitude** (one
-  meditation spot, Lucia's balcony, is only available in Chapter 1, and the
-  game has no mission replay). A few hidden trophies' exact triggers are still
-  being confirmed by the community a day after launch — those entries say so
-  plainly instead of inventing a method.
-- **Cheats warning**: cheats disable trophies and saving.
+## Run it
 
-## Try it
+The app is plain static files under `app/` with no build step. Serve it and open `index.html`:
 
 ```sh
-node serve.ts   # serves app/ on http://localhost:8080
+node serve.ts
+# open http://localhost:8080
 ```
 
-Or open `app/index.html` directly in Chrome.
+It works with the network off: every file it loads is a file under `app/`, and it makes no network request at run time.
 
-## Files
+## Hand it in
 
-- `main.ts` — the entry program (Node 22): copies `app/` and `screenshots/`
-  to the output and writes `dossier.json`.
-- `app/` — the static guide: `index.html`, `app.js`, `style.css`,
-  `data/trophies.json` (all 55 trophies with guides and sources).
-- `screenshots/` — real renders of this guide.
-- `vendor/makefun-frontend.ts` — the make.fun library, unchanged from the kit.
-- `serve.ts` — a tiny local static server for trying the guide.
+`main.ts` copies `app/` and `screenshots/` to the output directory and writes `dossier.json` with `buildDossier` from `vendor/makefun-frontend.ts`:
 
-## Notes
+```sh
+mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+```
 
-Unofficial and not affiliated with Rockstar Games or PlayStation. Trophy names,
-descriptions and grades are the official PlayStation Network text. No Rockstar
-logo or official artwork is used. MIT licensed — see `LICENSE`.
+## Data
+
+`app/data/trophies.json` holds the 55 trophies: each item has the official `name`, `description`, `grade`, whether it is `hidden`, its `kind`, a `missable` flag, its roadmap `stage`, a `guide` in our own words, and the `sources` its facts come from.
+
+## License
+
+MIT. Unofficial fan-made guide — Grand Theft Auto and GTA are trademarks of Rockstar Games; this guide uses no Rockstar logo, artwork, box art or game screenshots.

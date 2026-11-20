@@ -1,106 +1,97 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leonida Trophy Guide — GTA VI: all 55 PS5 trophies, offline tracker</title>
-<meta name="description" content="Offline guide and tracker for the 55 official PlayStation 5 trophies of Grand Theft Auto VI: checklist, roadmap to the platinum, missable warnings, and a guide to every trophy in our own words. Works with the network off.">
+<title>Leonida Trophy Atlas — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: roadmap, missable flags, cited guides, checklist with saved progress.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="hero">
-  <div>
-    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; offline guide</p>
-    <h1>Leonida Trophy Guide</h1>
-    <p class="sub">Every one of the 55 official PS5 trophies — name, description and grade exactly as PlayStation publishes them — with a guide to each in our own words, a checklist that saves in your browser, a road to the platinum, and the missables flagged.</p>
-  </div>
-  <div class="progress-card" aria-label="Progress">
-    <div class="big"><span id="earned-count">0</span><span class="of"> / 55</span></div>
-    <div class="bar"><div id="bar-fill" style="width:0%"></div></div>
-    <p id="progress-line">0 earned &middot; 0% to the platinum</p>
-    <p class="grades" id="grade-line"></p>
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies</p>
+    <h1>Leonida Trophy Atlas</h1>
+    <p class="tagline">Every trophy, its guide and its sources — plus a tracker that remembers where you are. Works fully offline.</p>
+    <div class="progress-wrap" aria-label="Platinum progress">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <p class="progress-text"><strong id="earnedCount">0</strong> of <strong>55</strong> earned &middot; <span id="progressPct">0%</span> to the platinum</p>
+    </div>
   </div>
 </header>
 
-<nav class="tabs" aria-label="Views">
-  <button type="button" id="tab-list" class="tab active">Trophy checklist</button>
-  <button type="button" id="tab-roadmap" class="tab">Roadmap to the platinum</button>
-  <button type="button" id="tab-missable" class="tab">Missable trophies</button>
-  <button type="button" id="tab-sources" class="tab">Sources &amp; notes</button>
-</nav>
+<main>
+  <section class="roadmap" id="roadmap" aria-label="Roadmap to the platinum">
+    <h2>Roadmap to the platinum</h2>
+    <p class="section-note">One playthrough is enough. No online trophies, no difficulty trophies, no mission replay — keep a manual save at the start and end of each chapter.</p>
+    <ol class="stages">
+      <li class="stage" data-stage="1">
+        <h3><span class="stage-num">1</span> Play the story</h3>
+        <p>Chapters 1 to 4 plus the finale. <strong class="count" data-count-stage="1"></strong> story trophies pop on their own — except one thing: do the balcony meditation with Lucia at Jason&rsquo;s house in Chapter 1, after Down to Earth. It is the only possibly missable trophy.</p>
+      </li>
+      <li class="stage" data-stage="2">
+        <h3><span class="stage-num">2</span> Reach 100% completion</h3>
+        <p>Open Progress &rarr; Stats &rarr; 100% Completion after the story and clean up only what is left: robberies, fencing, collectibles, races, 42 Shooting Range golds, 42 drone trials, 300 stunts, 70 challenges. <strong class="count" data-count-stage="2"></strong> trophies live here.</p>
+      </li>
+      <li class="stage" data-stage="3">
+        <h3><span class="stage-num">3</span> Strangers &amp; clean-up</h3>
+        <p>Finish eight Stranger mission strands, including the final missions of Andy, Kenton, Billy, Randy and Tyrone. <strong class="count" data-count-stage="3"></strong> trophies live here.</p>
+      </li>
+      <li class="stage" data-stage="4">
+        <h3><span class="stage-num">4</span> The platinum</h3>
+        <p>Vice Got a Price! pops the moment the other 54 are done. Roughly 200 hours in total, most of it on the 100% checklist.</p>
+      </li>
+    </ol>
+    <p class="missable-banner" id="missableBanner">&#9888; <strong>1 possibly missable trophy:</strong> Positive Mental Attitude — meditate at all 18 spots. One spot is the Chapter 1 balcony meditation with Lucia; miss it and you may need a new playthrough.</p>
+  </section>
 
-<section id="view-list">
-  <div class="controls">
-    <label class="search">Search <input id="q" type="search" placeholder="Trophy, mission or keyword…" autocomplete="off"></label>
-    <label>Kind
-      <select id="kind">
-        <option value="all">All kinds</option>
-        <option value="story">Story</option>
-        <option value="activity">Activities</option>
-        <option value="collectible">Collectibles</option>
-        <option value="robbery">Robberies</option>
-        <option value="combat">Combat</option>
-        <option value="exploration">Exploration</option>
-        <option value="money">Money</option>
-        <option value="misc">Odd jobs &amp; secrets</option>
-        <option value="completion">100% completion</option>
-        <option value="platinum">Platinum</option>
-      </select>
-    </label>
-    <label>Grade
-      <select id="grade">
-        <option value="all">All grades</option>
-        <option value="platinum">Platinum</option>
-        <option value="gold">Gold</option>
-        <option value="silver">Silver</option>
-        <option value="bronze">Bronze</option>
-      </select>
-    </label>
-    <label>Status
-      <select id="status">
-        <option value="all">Earned &amp; unearned</option>
-        <option value="earned">Earned only</option>
-        <option value="unearned">Unearned only</option>
-      </select>
-    </label>
-    <label class="check"><input id="missable-only" type="checkbox"> Missable only</label>
-    <label class="check" title="Hides story trophies until you earn them"><input id="spoilers" type="checkbox" checked> Hide story spoilers</label>
-  </div>
-  <div class="actions">
-    <button id="export" type="button">Export progress (.json)</button>
-    <label class="import-btn">Import progress <input id="import" type="file" accept="application/json,.json"></label>
-    <button id="reset" type="button">Reset checklist</button>
-    <span id="count-line" class="count"></span>
-  </div>
-  <p id="spoiler-note" class="note">Spoiler protection is on: 17 story trophies are hidden until you earn them. Untick “Hide story spoilers” to see them.</p>
-  <div id="cards" class="cards"></div>
-  <p id="empty" class="note" hidden>No trophies match these filters.</p>
-</section>
+  <section class="tracker" aria-label="Trophy tracker">
+    <div class="toolbar">
+      <label class="search-box">
+        <span class="visually-hidden">Search trophies</span>
+        <input type="search" id="searchInput" placeholder="Search a trophy by name&hellip;" autocomplete="off">
+      </label>
+      <div class="filters" id="filters" role="group" aria-label="Filter trophies">
+        <button type="button" class="chip active" data-filter="all">All 55</button>
+        <button type="button" class="chip" data-filter="story">Story</button>
+        <button type="button" class="chip" data-filter="missable">Missable</button>
+        <button type="button" class="chip" data-filter="collectibles">Collectibles</button>
+        <button type="button" class="chip" data-filter="activities">Activities</button>
+        <button type="button" class="chip" data-filter="crime">Crime</button>
+        <button type="button" class="chip" data-filter="exploration">Exploration</button>
+        <button type="button" class="chip" data-filter="earned">Earned</button>
+        <button type="button" class="chip" data-filter="unearned">Not yet earned</button>
+      </div>
+      <div class="toolbar-actions">
+        <label class="spoiler-toggle">
+          <input type="checkbox" id="spoilerToggle">
+          <span>Hide story spoilers</span>
+        </label>
+        <button type="button" id="exportBtn">Export progress</button>
+        <button type="button" id="importBtn">Import progress</button>
+        <input type="file" id="importFile" accept="application/json,.json" hidden>
+        <button type="button" id="resetBtn" class="danger">Reset</button>
+      </div>
+    </div>
+    <p class="list-meta" id="listMeta"></p>
+    <div class="tracker-grid">
+      <ul class="trophy-list" id="trophyList"></ul>
+      <aside class="detail" id="detail" aria-live="polite">
+        <p class="detail-empty">Select a trophy to read its guide and sources.</p>
+      </aside>
+    </div>
+  </section>
 
-<section id="view-roadmap" hidden>
-  <h2>Road to the platinum — <em>Vice Got a Price!</em></h2>
-  <p id="roadmap-estimate" class="note"></p>
-  <ol id="roadmap-steps" class="roadmap"></ol>
-  <h3>Warnings</h3>
-  <ul id="roadmap-warnings"></ul>
-</section>
-
-<section id="view-missable" hidden>
-  <h2>Missable trophies</h2>
-  <p>Only one trophy is currently reported as missable. The game has no mission replay, so the advice below matters — and until the community confirms the full list, keep a manual save at the start of every chapter.</p>
-  <div id="missable-list" class="cards"></div>
-</section>
-
-<section id="view-sources" hidden>
-  <h2>Sources &amp; notes</h2>
-  <p id="source-note"></p>
-  <ul id="source-list"></ul>
-  <p class="note">This guide is unofficial and not affiliated with Rockstar Games or PlayStation. Trophy names, descriptions and grades are the official PlayStation Network text; the guides are written in our own words. No Rockstar logo or official artwork is used. All files of this guide live under <code>app/</code> and it works with the network off — your checklist never leaves your browser except when you export it yourself.</p>
-</section>
+  <section class="sources-note">
+    <h2>Where the facts come from</h2>
+    <p>Official trophy names and descriptions are shown as PlayStation publishes them, as listed by Exophase and PSNProfiles. Every guide in this app is written in our own words and names its sources beside it: KeenGamer&rsquo;s GTA 6 Trophy Guide &amp; Platinum Roadmap, PushSquare&rsquo;s GTA 6 Trophy Guide &amp; Roadmap, GTABase&rsquo;s GTA 6 Achievements &amp; Trophies list, EGamers.io&rsquo;s GTA 6 trophy list, and Leonida Hub&rsquo;s trophy report. A few hidden trophies are still unconfirmed — their guides say so plainly.</p>
+  </section>
+</main>
 
 <footer>
-  <p>Leonida Trophy Guide — an unofficial, open-source, offline guide to the 55 official GTA VI PS5 trophies. Data: <code>app/data/trophies.json</code>.</p>
+  <p>Leonida Trophy Atlas — an unofficial fan-made guide. Grand Theft Auto and GTA are trademarks of Rockstar Games; this guide uses no Rockstar logo, artwork, box art or game screenshots. Made for the make.fun bounty &ldquo;Build the best GTA 6 trophy guide&rdquo;.</p>
 </footer>
+
 <script type="module" src="app.js"></script>
 </body>
 </html>
