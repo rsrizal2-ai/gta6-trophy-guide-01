@@ -1,13 +1,16 @@
-// Leonida Trophy Atlas — serves app/ on localhost for local testing.
-// Usage: node serve.ts [port]   (default 8080)
+// Tiny static server for local testing of the Leonida Trophy Atlas.
+// Serves app/ at its root on http://localhost:8080 — no build step, no
+// dependencies, standard library only.
+
 import { createServer } from 'node:http';
-import { existsSync, lstatSync, readFileSync } from 'node:fs';
-import { extname, join, normalize, resolve } from 'node:path';
+import { readFile } from 'node:fs/promises';
+import { extname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const APP_DIR = resolve(new URL('.', import.meta.url).pathname, 'app');
-const PORT = Number(process.argv[2] || 8080);
+const APP_ROOT = resolve(fileURLToPath(new URL('./app', import.meta.url)));
+const PORT = Number(process.env.PORT ?? 8080);
 
-const TYPES: Record<string, string> = {
+const MIME: Record<string, string> = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
@@ -19,24 +22,25 @@ const TYPES: Record<string, string> = {
   '.svg': 'image/svg+xml',
 };
 
-const server = createServer((req, res) => {
-  const rawPath = decodeURIComponent((req.url || '/').split('?')[0]);
-  const relPath = rawPath === '/' ? 'index.html' : rawPath.replace(/^\/+/, '');
-  const filePath = join(APP_DIR, normalize(relPath));
-  if (!filePath.startsWith(APP_DIR)) {
-    res.writeHead(403);
-    res.end('forbidden');
-    return;
-  }
-  if (!existsSync(filePath) || !lstatSync(filePath).isFile()) {
+const server = createServer(async (req, res) => {
+  try {
+    const path = decodeURIComponent(new URL(req.url ?? '/', 'http://localhost').pathname);
+    const target = path === '/' ? 'index.html' : path.replace(/^\/+/, '');
+    const file = resolve(join(APP_ROOT, target));
+    if (!file.startsWith(APP_ROOT + '/') && file !== APP_ROOT) {
+      res.writeHead(403);
+      res.end('Forbidden');
+      return;
+    }
+    const body = await readFile(file);
+    res.writeHead(200, { 'Content-Type': MIME[extname(file)] ?? 'application/octet-stream' });
+    res.end(body);
+  } catch {
     res.writeHead(404);
-    res.end('not found');
-    return;
+    res.end('Not found');
   }
-  res.writeHead(200, { 'content-type': TYPES[extname(filePath)] || 'application/octet-stream' });
-  res.end(readFileSync(filePath));
 });
 
 server.listen(PORT, () => {
-  console.log(`Leonida Trophy Atlas at http://localhost:${PORT}`);
+  console.log(`Leonida Trophy Atlas at http://localhost:${PORT}/`);
 });
